@@ -1,0 +1,58 @@
+class Bank:
+    acc_no=0        #to store account number 
+    name=" "        #to store name
+    balance=0       #to store balance
+    #function to open an account
+    def openAccount(self):
+        print("Enter the Account number:")
+        self.acc_no=int(input())                      #user enter a/c number
+        print("Enter Your name:")
+        self.name=input()                             #user enter name
+        print("Enter starting Balance")
+        self.balance=int(input())                     #user enter inital amount
+    #function to display account details
+    def showAccount(self):
+        print("User account details of this bank")
+        print("User Account number :",self.acc_no)
+        print("Username            :",self.name)
+        print("Initial Balance     :",self.balance)
+    #function to deposit
+    def deposit(self):
+        amt=0
+        print("Enter the Amount to be deposited")
+        amt=int(input())
+        self.balance+=amt
+        print("Balance after deposit:",self.balance)
+    #function for withdrawal
+    def withdrawal(self):
+        amt=0
+        print("Enter the amount to withdraw")
+        amt=int(input())
+        if self.balance>=amt:
+            self.balance-=amt
+        else:
+            print("Insufficient Balance")
+        print("Balance after withdraw:",self.balance)
+class exit:
+    b1=Bank()
+    print("***************************************")
+    print("**************WELCOME******************")
+    print("***************************************")
+    while True:
+       print("Press any option for Transaction")
+       print("1.Initial setup\n2.Show Account\n3.Deposit\n4.Withdraw\n5.Exit")
+       print("Enter your Choice")
+       option=int(input())    #12345
+       match option:
+            case 1:
+                print("Welcome for initial setup")
+                b1.openAccount()
+            case 2:
+                b1.showAccount()
+            case 3:
+                b1.deposit()
+            case 4:
+                b1.withdrawal()
+            case 5:
+                print("Exit Transaction")
+                break
